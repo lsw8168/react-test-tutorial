@@ -1,0 +1,18 @@
+[
+  {
+    "text": "todo #1",
+    "isCompleted": false
+  },
+  {
+    "text": "todo #2",
+    "isCompleted": true
+  },
+  {
+    "text": "todo #3",
+    "isCompleted": false
+  },
+  {
+    "text": "todo #4",
+    "isCompleted": false
+  }
+]

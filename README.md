@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cypress 5.3.0 설치
 
-## Available Scripts
+## E2E Test
 
-In the project directory, you can run:
+* E2E Test(End To End Test)
+* E2E Test는 종단(Endpoint) 간 테스트로 사용자의 입장에서 테스트 하는 것
+* 보통 Web, App 등에서 GUI를 통해서 시나리오, 기능 테스트 등을 수행
+* 사용자에게 직접 노출되는 부분을 점검한다고 생각하면 됨
 
-### `yarn start`
+## 장점
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 단점
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## install
 
-### `yarn test`
+* 프로젝트에서 install
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```npm
+npm install cypress --save-dev
+```
 
-### `yarn build`
+## Cypress 초기화
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```npm
+node_modules/.bin/cypress open
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+npx cypress open
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* 프로젝트 root 폴더에 cypress 폴더가 생성
+* cypress/integration/examples 폴더 아래 cypress를 사용하여 테스트 예제 코드 생성
 
-### `yarn eject`
+### cypress.json
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* 프로젝트 폴더아래 cypress.json파일이 생성
+* cypress의 기본 url을 설정(localUrl port 동일하게 설정)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+{
+  "baseUrl": "http://localhost:3000"
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Adding npm scripts
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```js
+...
+{
+  "scripts": {
+    "cypress": "cypress open"
+  }
+}
+...
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+npm run cypress
+```
