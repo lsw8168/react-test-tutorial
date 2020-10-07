@@ -1,18 +1,22 @@
 [
   {
-    "text": "todo #1",
+    "id": 1,
+    "text": "Buy Milk",
     "isCompleted": false
   },
   {
-    "text": "todo #2",
+    "id": 2,
+    "text": "Buy Eggs",
     "isCompleted": true
   },
   {
-    "text": "todo #3",
+    "id": 3,
+    "text": "Buy Bread",
     "isCompleted": false
   },
   {
-    "text": "todo #4",
+    "id": 4,
+    "text": "Make French Toast",
     "isCompleted": false
   }
 ]

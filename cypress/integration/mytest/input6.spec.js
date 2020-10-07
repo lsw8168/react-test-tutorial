@@ -8,8 +8,10 @@ describe('List items', () => {
       .filter('.completed')
       .should('have.length', 1)
       .and('contain', 'Eggs')
-      .find('.toggle')
+      .find('input')
       .should('be.checked')
+
+    
   })
 
   it('Shows remaining todos in the footer', () => {
@@ -17,9 +19,9 @@ describe('List items', () => {
       .should('contain', 3)
   })
 
-  it.only('Remove a todo', () => {
+  it('Remove a todo', () => {
     cy.route({
-      url: '/api/todos/0',
+      url: '/api/todos/1',
       method: 'DELETE',
       status: 200,
       response: {}
@@ -37,5 +39,35 @@ describe('List items', () => {
     cy.get('@list')
       .should('have.length', 3)
       .and('not.contain', 'Milk')
+  })
+
+  it('Marks an incomplete item complete', () => {
+    cy.fixture('todos')
+      .then(todos => {
+        const target = Cypress._.head(todos)
+        cy.route(
+          'PUT',
+          `/api/todos/${target.id}`,
+          Cypress._.merge(target, {isCompleted: true})
+        )
+      })
+
+    cy.get('.todo-list > div')
+      .first()
+      .as('first-todo')
+    
+    cy.get('@first-todo')
+      .find('.toggle')
+      .click()
+
+    cy.get('@first-todo')
+      .find('input')
+      .should('be.checked')
+
+    cy.get('@first-todo')
+      .should('have.class', 'completed')
+
+    cy.get('.todo-count')
+      .should('contain', 2)
   })
 })
