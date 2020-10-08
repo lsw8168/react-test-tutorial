@@ -19,8 +19,6 @@
 
 ## 장점
 
-
-
 ## 단점
 
 ## install
@@ -49,7 +47,7 @@ npx cypress open
 
 ```js
 {
-  "baseUrl": "http://localhost:3000"
+  "baseUrl": "http://localhost:3030"
 }
 ```
 

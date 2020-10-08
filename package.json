@@ -12,12 +12,12 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3030 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "json-server db.json --routes routes.json",
-    "dev": "concurrently \"npm run start\" \"npm run serve\"",
+    "dev": "concurrently \"set PORT=3000 && react-scripts start\" \"npm run serve\"",
     "cypress": "cypress open"
   },
   "eslintConfig": {

@@ -1,24 +1,19 @@
 {
   "todos": [
     {
-      "id": 1,
-      "name": "Buy Milk",
-      "isComplete": true
-    },
-    {
-      "id": 2,
-      "name": "Buy Eggs",
-      "isComplete": true
-    },
-    {
-      "id": 4,
-      "name": "Make French Toast",
-      "isComplete": false
-    },
-    {
-      "name": "오늘의 할 일",
+      "name": "Buy milk",
       "isComplete": false,
-      "id": 5
+      "id": 1
+    },
+    {
+      "name": "Buy eggs",
+      "isComplete": false,
+      "id": 2
+    },
+    {
+      "name": "Buy bread",
+      "isComplete": false,
+      "id": 3
     }
   ]
 }
