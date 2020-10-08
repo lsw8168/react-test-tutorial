@@ -16,6 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "serve": "json-server db.json --routes routes.json",
+    "dev": "concurrently \"npm run start\" \"npm run serve\"",
     "cypress": "cypress open"
   },
   "eslintConfig": {

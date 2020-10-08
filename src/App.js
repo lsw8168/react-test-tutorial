@@ -7,9 +7,9 @@ import { filterTodos } from './lib/utils';
 function Todo({ todo, completeTodo, removeTodo }) {
   return (
     todo.map(todo => 
-      <div key={todo.id} className={`todo ${todo.isCompleted ? "completed": ''}`}>
-        <input type="checkbox" readOnly checked={todo.isCompleted} />
-        {todo.text}
+      <div key={todo.id} className={`todo ${todo.isComplete ? "completed": ''}`}>
+        <input type="checkbox" readOnly checked={todo.isComplete} />
+        {todo.name}
         <div>
           <button className="toggle" onClick={() => completeTodo(todo.id)}>완료</button>
           <button className="destroy" onClick={() => removeTodo(todo.id)}>삭제</button>
@@ -57,7 +57,7 @@ function App() {
   const addTodo = React.useCallback(text => {
     // const newTodos = [...todos, { text }];
     // setTodos(newTodos);
-    const newTodos = {text: text, isCompleted: false}
+    const newTodos = {name: text, isComplete: false}
     saveTodo(newTodos)
       .then(({data}) => setTodos([...todos, data]))
       .catch(() => setError(true))
@@ -68,7 +68,7 @@ function App() {
     // console.log(targetTodo)
     const updated = {
       ...targetTodo,
-      isCompleted: !targetTodo.isCompleted
+      isComplete: !targetTodo.isComplete
     }
     // console.log(updated)
 
@@ -100,7 +100,7 @@ function App() {
 
 
     // const newTodos = [...todos];
-    // newTodos[index].isCompleted = true;
+    // newTodos[index].isComplete = true;
     // setTodos(newTodos);
   }, [todos]);
 
@@ -117,7 +117,7 @@ function App() {
       .catch(() => setError(true))
   }, [todos]);
 
-  const remaining = todos.filter(t => !t.isCompleted).length;
+  const remaining = todos.filter(t => !t.isComplete).length;
 
   return (
     <Router>
