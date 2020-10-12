@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "serve": "json-server db.json --routes routes.json",
     "dev": "concurrently \"set PORT=3000 && react-scripts start\" \"npm run serve\"",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress:all": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
